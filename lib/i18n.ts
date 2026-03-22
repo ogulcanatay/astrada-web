@@ -5,7 +5,8 @@ export const T = {
     home:     { tr: "Ana Sayfa",   en: "Home" },
     services: { tr: "Hizmetler",  en: "Services" },
     about:    { tr: "Hakkımızda", en: "About" },
-    contact:  { tr: "İletişim",   en: "Contact" },
+    buyer:    { tr: "Alıcı Danışmanlığı", en: "Buyer Advisory" },
+    contact:  { tr: "İletişim",          en: "Contact" },
   },
   hero: {
     title:    { tr: "Mülkünüz doğru eller ile buluştuğunda fark yaratır.", en: "The right hands make all the difference." },

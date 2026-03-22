@@ -20,9 +20,10 @@ export default function Navbar({ lang, setLang }: { lang: Lang; setLang: (l: Lan
   }, []);
 
   const links = [
-    { href: "/",           label: t(T.nav.home, lang) },
-    { href: "/hizmetler",  label: t(T.nav.services, lang) },
-    { href: "/hakkimizda", label: t(T.nav.about, lang) },
+    { href: "/",                    label: t(T.nav.home, lang) },
+    { href: "/hizmetler",           label: t(T.nav.services, lang) },
+    { href: "/alici-danismanligi",  label: t(T.nav.buyer, lang) },
+    { href: "/hakkimizda",          label: t(T.nav.about, lang) },
   ];
 
   return (

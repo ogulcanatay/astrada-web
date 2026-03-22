@@ -122,7 +122,7 @@ export default function Home() {
       </section>
 
       {/* ── TRANSACTIONS GALLERY ─────────────────────────────────────────── */}
-      <section className="py-24 px-6">
+      <section id="islemler" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-brand">

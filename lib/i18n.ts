@@ -10,8 +10,8 @@ export const T = {
   hero: {
     title:    { tr: "Mülkünüz doğru eller ile buluştuğunda fark yaratır.", en: "The right hands make all the difference." },
     sub:      { tr: "İstanbul'un en nitelikli gayrimenkullerinde satış, kiralama ve yatırım danışmanlığı.", en: "Sales, leasing and investment advisory in Istanbul's most prestigious properties." },
-    cta1:     { tr: "Portföyü Keşfet", en: "Explore Portfolio" },
-    cta2:     { tr: "Bizimle Çalışın", en: "Work With Us" },
+    cta1:     { tr: "Alıcı Danışmanlığı Alın", en: "Buyer Advisory" },
+    cta2:     { tr: "Ücretsiz Değerleme Alın", en: "Free Valuation" },
   },
   stats: {
     s1: { tr: "Türkiye İlk 100 Danışman", en: "Turkey Top 100 Agents" },

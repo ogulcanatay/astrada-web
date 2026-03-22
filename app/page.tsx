@@ -64,7 +64,7 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60" />
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <p className="text-accent text-xs tracking-[0.3em] uppercase font-semibold mb-6">astrADA Partners Realty</p>
+          <p className="text-accent text-sm tracking-[0.25em] uppercase font-bold mb-6">astrADA Partners Realty</p>
           <h1 className="text-4xl md:text-6xl font-bold leading-tight mb-6">
             {t(T.hero.title, lang)}
           </h1>
@@ -100,10 +100,12 @@ export default function Home() {
 
       {/* ── BUYER TICKER ─────────────────────────────────────────────────── */}
       <section className="bg-zinc-50 border-y border-zinc-100 py-5 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-3">
-          <span className="text-[10px] font-bold tracking-[0.25em] uppercase text-zinc-400">
+        <div className="max-w-7xl mx-auto px-6 mb-4 flex items-center gap-3">
+          <span className="w-2 h-2 rounded-full bg-accent flex-shrink-0" />
+          <span className="text-xs font-bold tracking-[0.2em] uppercase text-brand">
             {t(T.ticker.label, lang)}
           </span>
+          <span className="flex-1 h-px bg-zinc-200" />
         </div>
         <div className="overflow-hidden">
           <div className="ticker-track">

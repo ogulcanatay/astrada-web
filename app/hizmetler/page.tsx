@@ -5,13 +5,28 @@ import Footer from "@/components/Footer";
 import { Lang, T, t } from "@/lib/i18n";
 import ContactForm from "@/components/ContactForm";
 
+const SERVICE_ICONS = [
+  // Doğru Fiyat Stratejisi — chart/bar icon
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/><line x1="2" y1="20" x2="22" y2="20"/></svg>,
+  // Profesyonel Prodüksiyon — camera icon
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M23 7l-7 5 7 5V7z"/><rect x="1" y="5" width="15" height="14" rx="2" ry="2"/></svg>,
+  // Çok Kanallı Pazarlama — globe icon
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>,
+  // Alıcı Eşleştirme — users icon
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>,
+  // Sektör Ağı — share/network icon
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>,
+  // Şeffaf Raporlama — file-text icon
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>,
+];
+
 const SERVICES = [
-  { icon: "🎯", title: { tr: "Doğru Fiyat Stratejisi",    en: "Right Pricing Strategy" },    desc: { tr: "Piyasa verisi ve bölge analiziyle mülkünüzün rekabetçi ama maksimum fiyatını belirliyoruz.", en: "We determine the competitive yet maximum price for your property using market data and area analysis." } },
-  { icon: "📸", title: { tr: "Profesyonel Prodüksiyon",   en: "Professional Production" },    desc: { tr: "Fotoğraf, drone ve video çekimleri — mülkünüz ilk izlenimde öne çıksın diye.", en: "Photo, drone and video shoots — so your property stands out at first glance." } },
-  { icon: "🌐", title: { tr: "Çok Kanallı Pazarlama",     en: "Multi-Channel Marketing" },    desc: { tr: "Ücretli dijital reklamlar, sosyal medya, emlak platformları ve özel micro web sitesi.", en: "Paid digital ads, social media, real estate platforms and a dedicated micro website." } },
-  { icon: "👥", title: { tr: "Alıcı Eşleştirme",         en: "Buyer Matching" },             desc: { tr: "20.000+ kişilik aktif alıcı veritabanımızla mülkünüze en uygun alıcıyı tespit ediyoruz.", en: "We identify the best buyer for your property using our 20,000+ active buyer database." } },
-  { icon: "🤝", title: { tr: "Sektör Ağı",               en: "Industry Network" },           desc: { tr: "9.000+ emlak profesyoneline ulaşan haftalık paylaşımlar ve karavan tur organizasyonları.", en: "Weekly broadcasts to 9,000+ real estate professionals and caravan tour organizations." } },
-  { icon: "📋", title: { tr: "Şeffaf Raporlama",          en: "Transparent Reporting" },      desc: { tr: "Haftalık pazarlama raporu ve geri bildirim özetleriyle süreci her zaman şeffaf tutuyoruz.", en: "We keep the process transparent with weekly marketing reports and feedback summaries." } },
+  { title: { tr: "Doğru Fiyat Stratejisi",    en: "Right Pricing Strategy" },    desc: { tr: "Piyasa verisi ve bölge analiziyle mülkünüzün rekabetçi ama maksimum fiyatını belirliyoruz.", en: "We determine the competitive yet maximum price for your property using market data and area analysis." } },
+  { title: { tr: "Profesyonel Prodüksiyon",   en: "Professional Production" },    desc: { tr: "Fotoğraf, drone ve video çekimleri — mülkünüz ilk izlenimde öne çıksın diye.", en: "Photo, drone and video shoots — so your property stands out at first glance." } },
+  { title: { tr: "Çok Kanallı Pazarlama",     en: "Multi-Channel Marketing" },    desc: { tr: "Ücretli dijital reklamlar, sosyal medya, emlak platformları ve özel micro web sitesi.", en: "Paid digital ads, social media, real estate platforms and a dedicated micro website." } },
+  { title: { tr: "Alıcı Eşleştirme",         en: "Buyer Matching" },             desc: { tr: "20.000+ kişilik aktif alıcı veritabanımızla mülkünüze en uygun alıcıyı tespit ediyoruz.", en: "We identify the best buyer for your property using our 20,000+ active buyer database." } },
+  { title: { tr: "Sektör Ağı",               en: "Industry Network" },           desc: { tr: "9.000+ emlak profesyoneline ulaşan haftalık paylaşımlar ve karavan tur organizasyonları.", en: "Weekly broadcasts to 9,000+ real estate professionals and caravan tour organizations." } },
+  { title: { tr: "Şeffaf Raporlama",          en: "Transparent Reporting" },      desc: { tr: "Haftalık pazarlama raporu ve geri bildirim özetleriyle süreci her zaman şeffaf tutuyoruz.", en: "We keep the process transparent with weekly marketing reports and feedback summaries." } },
 ];
 
 const PROCESS = [
@@ -46,7 +61,9 @@ export default function HizmetlerPage() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((s, i) => (
             <div key={i} className="p-8 rounded-2xl border border-zinc-100 hover:shadow-lg transition-shadow">
-              <div className="text-3xl mb-5">{s.icon}</div>
+              <div className="w-10 h-10 rounded-xl bg-zinc-50 flex items-center justify-center text-brand mb-5">
+                {SERVICE_ICONS[i]}
+              </div>
               <h3 className="text-lg font-bold text-brand mb-3">{t(s.title, lang)}</h3>
               <p className="text-zinc-500 text-sm leading-relaxed">{t(s.desc, lang)}</p>
             </div>
